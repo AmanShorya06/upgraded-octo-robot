@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .photo-card {
+            position: absolute;
+            width: 180px;
+            height: 270px;
+            background: #fff;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: grab;
+        }
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .photo-card:nth-child(2) {
+            top: 45%;
+            left: 45%;
+            z-index: 4;
+        }
+        .photo-card:nth-child(3) {
+            top: 42%;
+            left: 42%;
+            z-index: 3;
+        }
+        .photo-card:nth-child(4) {
+            top: 39%;
+            left: 39%;
+            z-index: 2;
+        }
+        .photo-card:nth-child(5) {
+            top: 36%;
+            left: 36%;
+            z-index: 1;
+        }
+        #hidden-button {
+            display: none;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Birthday to You!!!</h1>
+
+    <!-- Draggable Photo Cards -->
+    <div class="photo-card" draggable="true">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/472231957_2988172731329718_738999266996402649_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=5eZvoHWvtaEQ7kNvgHDdegr&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gEzud3qOk-EbiAAnZAL3Op9RB-SyIlpJzIuo7aTuYhihA&oe=67A9C001" alt="Photo Card 1">
+    </div>
+    <div class="photo-card" draggable="true">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/472127760_1929730767515793_7641356503529808874_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=6GccSmPkXNsQ7kNvgHyi5XH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gGHNntYWBmHASaBsMqXj3xfdBymiXoA9gFLHUmlHxkvFQ&oe=67A9D9FE" alt="Photo Card 2">
+    </div>se.jp
+    <div class="photo-card" draggable="true">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462577667_944513060966518_3293212305410605870_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=BoubV78siWcQ7kNvgGsqtnn&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gFMmTQAKI2QiR1ddHS-E8krlhVqtccCtik_m5XaVEbHFw&oe=67A9DB10" alt="Photo Card 3">
+    </div>
+    <div class="photo-card" draggable="true">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462571516_1364924211538914_2298152941419231767_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_ohc=v-RR3yqiSdYQ7kNvgF8Mrgv&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gGdbU1vnHxbH1ks3ofkoMuRYxRI--uGNAtyYhH12j9jaA&oe=67A9E07D" alt="Photo Card 4">
+    </div>
+    <audio autoplay loop>
+        <source src="happy-birthday-254480.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Hidden Button (appears when all cards are hidden) -->
+    <button id="hidden-button" onclick="window.location.href='page3.html'">Next</button>
+
+    <script>
+        const photoCards = document.querySelectorAll('.photo-card');
+        const hiddenButton = document.getElementById('hidden-button');
+
+        // Move the 'Nhi milega' button when clicked
+        function moveButton() {
+            const button = document.getElementById('nhi-milega');
+            const randomX = Math.floor(Math.random() * window.innerWidth);
+            const randomY = Math.floor(Math.random() * window.innerHeight);
+            button.style.position = 'absolute';
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        }
+
+        // Handle dragging of photo cards
+        photoCards.forEach(card => {
+            card.addEventListener('dragend', () => {
+                card.style.display = 'none'; // Hide the card after dragging
+
+                // Check if all cards are hidden
+                const allHidden = Array.from(photoCards).every(c => c.style.display === 'none');
+                if (allHidden) {
+                    hiddenButton.style.display = 'block'; // Show the 'Next' button
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
